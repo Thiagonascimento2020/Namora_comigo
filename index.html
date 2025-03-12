@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namora comigo?</title>
+</head>
+
+<body>
+    <div id="conteudo">
+        <div class="botoes">
+            <button class="btn" onclick="sim()">
+                <img src="src/Imagens/2.jpg" alt="Sim">
+                <p>Sim</p> <!-- Texto "Sim" abaixo da imagem -->
+            </button>
+
+            <button class="btn" id="nao" onclick="desvia(this)" onmouseover="desvia(this)">
+                <img src="src/Imagens/Jabu1.jpg" alt="Não">
+                <p>Não</p> <!-- Texto "Não" abaixo da imagem -->
+            </button>
+        </div>
+
+        <h2>Aceita namorar comigo?</h2>
+    </div>
+</body>
+
+<style>
+    /* Estilizando o fundo com uma camada de opacidade */
+    #conteudo {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        font-family: sans-serif;
+        overflow: hidden;
+    }
+
+    /* Imagem de fundo */
+    #conteudo::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('src/Imagens/fundo.jpg'); /* Caminho da imagem */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: brightness(40%) blur(3px); /* Deixa o fundo mais escuro e desfocado */
+        z-index: -1; /* Mantém o fundo atrás do conteúdo */
+    }
+    
+    h2 {
+        color: white; /* Mudando a cor para branco */
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+    /* Container dos botões */
+    .botoes {
+        display: flex;
+        gap: 20px; /* Espaço entre as imagens */
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    /* Botões do mesmo tamanho */
+    .btn {
+        width: 120px;
+        height: 120px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Ajuste para as imagens dentro dos botões */
+    .btn img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    /* Estilo para os textos "Sim" e "Não" */
+    .btn p {
+        margin-top: 10px;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+
+</style>
+
+<script>
+    function sim() {
+        alert("Você aceitou namorar comigo! :)");
+        location.href = "https://music.youtube.com/watch?v=izGwDsrQ1eQ";
+    }
+
+    function desvia(btn) {
+        let novaPosicaoX = geraPosicao(10, 80);
+        let novaPosicaoY = geraPosicao(10, 80);
+
+        btn.style.left = novaPosicaoX;
+        btn.style.top = novaPosicaoY;
+
+        // Mover o texto junto com a imagem
+        const texto = btn.querySelector("p");
+        texto.style.position = "absolute";
+        texto.style.left = "50%";
+        texto.style.transform = "translateX(-50%)";
+
+        console.log(`Botão "Não" moveu para: X=${novaPosicaoX}, Y=${novaPosicaoY}`);
+    }
+
+    function geraPosicao(min, max) {
+        return (Math.random() * (max - min) + min) + "%";
+    }
+</script>
+
+</html>
