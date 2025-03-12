@@ -61,6 +61,7 @@
         font-size: 28px;
         margin-bottom: 20px;
     }
+
     /* Container dos botões */
     .botoes {
         display: flex;
@@ -101,7 +102,50 @@
         font-weight: bold;
     }
 
+    /* Responsividade para dispositivos móveis */
+    @media (max-width: 768px) {
+        /* Reduzir o tamanho do título para telas menores */
+        h2 {
+            font-size: 24px;
+        }
 
+        /* Ajustar o tamanho dos botões e imagens */
+        .btn {
+            width: 90px;
+            height: 90px;
+        }
+
+        .btn img {
+            width: 80px;
+            height: 80px;
+        }
+
+        /* Ajuste do texto para telas pequenas */
+        .btn p {
+            font-size: 14px;
+        }
+    }
+
+    /* Estilo para telas menores que 480px */
+    @media (max-width: 480px) {
+        h2 {
+            font-size: 20px;
+        }
+
+        .btn {
+            width: 80px;
+            height: 80px;
+        }
+
+        .btn img {
+            width: 70px;
+            height: 70px;
+        }
+
+        .btn p {
+            font-size: 12px;
+        }
+    }
 </style>
 
 <script>
